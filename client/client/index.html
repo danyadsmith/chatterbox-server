@@ -1,0 +1,77 @@
+  <!-- THIS IS UPDATED -->
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chatterbox</title>
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- dependencies -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <script>
+      // YOU DO NOT NEED TO EDIT THIS CODE
+      if (!/(&|\?)username=/.test(window.location.search)) {
+        var newSearch = window.location.search;
+        if (newSearch !== '' & newSearch !== '?') {
+          newSearch += '&';
+        }
+        newSearch += 'username=' + (prompt('What is your name?') || 'anonymous');
+        window.location.search = newSearch;
+      }
+    </script>
+    <!-- your scripts -->
+    <script src="env/config.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="config.js"></script>
+<!--     Script with instructions for when submit button is clicked (posts message to server)-->
+<!-- <script>
+    function postMessage() {
+      var msgElement = document.getElementById("messageText");
+      var text = msgElement.value;
+      var message = {
+        username: 'Batman',
+        text: text,
+        roomname: 'hrr22'
+      };
+
+      $.ajax({
+        url: 'http://parse.hrr.hackreactor.com/chatterbox/classes/messages',
+        type: 'POST',
+        data: JSON.stringify(message),
+        contentType: 'application/json',
+        success: function (data) {
+          console.log('chatterbox: Message sent');
+        },
+        error: function (data) {
+          console.error('chatterbox: Failed to send message', data);
+        }
+      });
+    }
+</script> -->
+ </head>
+  <body>
+    <div id="main">
+      <h1>chatterbox</h1>
+      <!-- Your HTML goes here! -->
+    <div id="rooms">
+    Room:
+    <select id="roomSelect">
+    </select>
+    </div>
+    <form action="#" id="send" method="post">
+      <input type="text" name="message" id ="message"/>
+      <input type="submit" name="submit" id ="submit"/>
+    </form>
+    </div>
+    <div id="chats"></div>
+    <script>
+    $(function() {
+      app.init()
+    });
+
+    </script>
+  </body>
+</html>
